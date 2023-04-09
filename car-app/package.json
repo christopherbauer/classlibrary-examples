@@ -1,15 +1,19 @@
 {
-  "name": "car-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@classlibrary/core-js": "file:../core-js"
-  }
+	"name": "car-app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start-js": "node index.js",
+		"start-ts": "ts-node index.ts",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@classlibrary/core-js": "file:../core-js",
+		"@classlibrary/core-ts": "file:../core-ts",
+		"ts-node": "^10.9.1"
+	}
 }
