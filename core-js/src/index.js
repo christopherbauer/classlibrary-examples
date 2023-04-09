@@ -11,45 +11,38 @@ export class NewCar {
 		this.mpg = mpg;
 		this.state = "stopped";
 	}
+	start = () => {
+		console.log("Starting car!");
+		if (this.gas > 0) {
+			this.state = "running";
+		} else {
+			console.log("No gas!");
+		}
+	};
+	fill = (gallon) => {
+		this.gas += gallon;
+	};
 	transitions = {
 		stopped: {
 			drive: (distance) => {
-				if (this.gas > 0) {
-					console.log("Can't drive - car not started!");
-					this.state = "running";
-					report(0, this.gas, 0, this.state);
-				} else {
-					console.log("Can't start - tank empty");
-				}
+				console.log("Can't drive - car not started!");
 			},
 		},
 		running: {
 			drive: (distance) => {
-				//gas = 10
-				//mpg = 10
-				//max distance = 100
-
-				//desired distance = 5
-				//gas to use = desired / mpg = .5
-				//drivable distance = gas * mpg
-
 				const gasToUse = distance / this.mpg;
 				if (this.gas > gasToUse) {
 					this.state = "running";
 					this.gas -= gasToUse;
-					report(distance, gasToUse, this.gas, this.state);
+					report(distance, this.gas, gasToUse, this.state);
 				} else {
-					this.state = "empty";
+					this.state = "stopped";
 					const gasLeft = this.gas;
 					const drivableDistance = this.gas * this.mpg;
 					this.gas -= gasLeft;
+					console.log("Car turned off!");
 					report(drivableDistance, this.gas, gasLeft, this.state);
 				}
-			},
-		},
-		empty: {
-			drive: (distance) => {
-				console.error("Can't drive - tank is empty!");
 			},
 		},
 	};
