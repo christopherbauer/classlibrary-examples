@@ -1,5 +1,6 @@
 {
 	"dependencies": {
+		"@classlibrary/core-ts": "^1.0.0",
 		"typescript": "^5.0.4"
 	},
 	"name": "@classlibrary/core-ts",
